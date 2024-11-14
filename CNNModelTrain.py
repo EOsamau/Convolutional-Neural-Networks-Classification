@@ -6,6 +6,12 @@ from torchvision import datasets, transforms
 import numpy as np
 import os
 
+
+'''
+Detailed Comments are in the Model Build notebook file
+
+'''
+
 class FashionMNISTDataset(Dataset):
     def __init__(self, data, targets, transform=None):
         self.data = data.numpy()
@@ -144,7 +150,7 @@ def train_and_save_model(epochs=10, learning_rate=0.001, batch_size=64, save_pat
     
     print(f"Model saved to {save_path}")
     
-    # Evaluate the model before finishing
+    # Evaluate the model 
     model.eval()
     correct = 0
     total = 0

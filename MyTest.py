@@ -68,17 +68,17 @@ class FashionMNISTNet(nn.Module):
         return x
 
 def load_and_evaluate_model(model_path='model.pt', batch_size=64):
-    # Create a new instance of the model
+    # Creating a new instance of the model
     model = FashionMNISTNet()
     
-    # Load the saved model state
+    # Loading the saved model state
     checkpoint = torch.load(model_path)
     model.load_state_dict(checkpoint['model_state_dict'])
     epoch = checkpoint['epoch']
     
     print(f"Loaded model from epoch {epoch}")
     
-    # Prepare the test data
+    # Setting up my test data
     transform = transforms.Compose([
         transforms.ToTensor(),
         transforms.Normalize((0.5,), (0.5,))
@@ -103,7 +103,7 @@ def load_and_evaluate_model(model_path='model.pt', batch_size=64):
         shuffle=False
     )
     
-    # Evaluate the model
+    # Evaluating the model
     model.eval()
     correct = 0
     total = 0
